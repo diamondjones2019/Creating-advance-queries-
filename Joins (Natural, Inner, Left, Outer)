@@ -1,0 +1,14 @@
+Viewing each table
+SELECT * FROM film;
+select * from film_category;
+
+
+Joining both queries
+select *
+from film, film_actor;
+
+
+Natural Join
+select *
+from film, film_actor
+where film.film_id = film_actor.film_id;
