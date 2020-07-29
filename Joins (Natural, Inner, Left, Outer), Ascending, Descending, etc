@@ -1,0 +1,65 @@
+SELECT * FROM film;
+select * from film_category;
+
+
+Joining 2 queries
+select *
+from film, film_actor;
+
+
+Natural Join
+select *
+from film, film_actor
+where film.film_id = film_actor.film_id;
+
+
+Aliases
+select film.film_id AS 'Film ID', film.description AS 'Description', film.last_update AS 'Last Update'
+from film, film_actor
+where film.film_id = film_actor.film_id;
+
+
+Inner Join
+select a.film_id, b.film_id
+from sakila.film a
+join sakila.film b
+on a.film_id = b.film_id;
+
+
+Left Join
+select film.title, film.description, film_actor.film_id
+from film
+join film_actor
+on film.film_id = film_actor.film_id;
+
+
+Count(*)
+select count(*) AS 'Number of Films'
+from film;
+
+
+Grouping
+select 'Total', replacement_cost AS 'Replacement Cost', sum(rental_rate) AS 'Rental Rate'
+from film
+group by replacement_cost;
+
+
+Ordering with DESC
+select 'Total', replacement_cost AS 'Replacement Cost', sum(rental_rate) AS 'Rental Rate'
+from film
+group by replacement_cost
+order by sum(rental_rate) DESC;
+
+
+Order Group with ACS
+select 'Total', replacement_cost AS 'Replacement Cost', sum(rental_rate) AS 'Rental Rate'
+from film
+group by replacement_cost
+order by sum(rental_rate);
+
+
+Total
+select 'Total', replacement_cost, sum(rental_rate)
+from film
+where rental_rate;
+
