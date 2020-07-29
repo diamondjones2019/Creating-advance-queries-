@@ -1,4 +1,4 @@
-SELECT * FROM film;
+select * from film;
 select * from film_category;
 
 
