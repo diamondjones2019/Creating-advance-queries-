@@ -63,3 +63,32 @@ select 'Total', replacement_cost, sum(rental_rate)
 from film
 where rental_rate;
 
+
+Sum of more than one column
+select film_id, sum(rental_rate), sum(length * replacement_cost) AS 'Total'
+from film
+group by film_id;
+
+
+Subqueries 
+select avg(rental_rate)
+from film;
+
+
+Higher average
+select rental_duration, rental_rate, length
+from film
+where length > 2.980000
+order by rental_duration; 
+
+
+Find the average for all
+select rental_duration, rental_rate, length
+from film
+where length > 
+	(
+    select avg(rental_rate)
+	from film
+    )
+order by rental_duration;
+
